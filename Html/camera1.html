@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Access Example</title>
+</head>
+<style>
+    h1{
+        color: darkred;
+    }
+    #startButton:hover{
+        background-color: rgb(202, 202, 55);
+        border-radius: 16px;
+        top: 23px;
+
+    }
+    #startButton{
+        border: 2px  solid darkgoldenrod;
+    }
+    #stopButton{
+        border: 2px  solid darkgoldenrod;
+    }
+    #stopButton:hover{
+        background-color: rgb(202, 202, 55);
+        border-radius: 16px;
+    }
+</style>
+<body>
+    <h1>MA HO CHOTA SNAP CHAT</h1>
+    <video id="cameraStream" width="640" height="480" autoplay></video>
+    <button id="startButton">Start Camera</button>
+    <button id="stopButton">Stop Camera</button>
+
+    <script>
+        let videoStream;
+
+        // Function to start the camera stream
+        function startCamera() {
+            const constraints = { video: true };
+
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then((stream) => {
+                    videoStream = stream;
+                    const videoElement = document.getElementById("cameraStream");
+                    videoElement.srcObject = stream;
+                })
+                .catch((error) => {
+                    console.error("Error accessing the camera: ", error);
+                });
+        }
+
+        // Function to stop the camera stream
+        function stopCamera() {
+            if (videoStream) {
+                const tracks = videoStream.getTracks();
+                tracks.forEach((track) => {
+                    track.stop();
+                });
+                videoStream = null;
+            }
+        }
+
+        document.getElementById("startButton").addEventListener("click", startCamera);
+        document.getElementById("stopButton").addEventListener("click", stopCamera);
+    </script>
+</body>
+</html>

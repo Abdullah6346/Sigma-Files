@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: aqua;
+            border: 2px solid aquamarine;
+            width: 120px;
+            height: 85px
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="button">Create Data </button>
+ 
+
+</body>
+<script>
+
+   document.getElementById('button').addEventListener("click", () => {
+            fetch('/insertData', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error creating data');
+            });
+        });
+    </script>
+
+
+</html>

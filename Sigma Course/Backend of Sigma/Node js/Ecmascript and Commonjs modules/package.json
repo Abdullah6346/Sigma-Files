@@ -1,0 +1,16 @@
+
+{
+  "name": "ecEnd mascript-and-commonjs-modules",
+  "version": "1.0.0",
+  "description": "",
+  "customCommentField": "type:module for ES6 (ecma script format of modules)",
+  "main": "common.js",
+  "type": "module",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

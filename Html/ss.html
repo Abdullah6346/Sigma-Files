@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perfect Birthday Party</title>
+</head>
+<style>
+    body{
+         background: linear-gradient(rgb(168, 5, 5));
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --navbar-height: 55px;
+    }
+
+    #navbar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        top: 0px;
+    }
+
+    #logo {
+        margin: 12px 30px;
+    }
+
+    #logo img {
+        margin: 3px 1px;
+        height: 60px;
+    }
+
+    #navbar ul {
+        display: flex;
+        font-family: 'Bree Serif', cursive;
+    }
+
+    #navbar::before {
+        content: "";
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.3;
+    }
+
+    #navbar ul li {
+        display: flex;
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+    #navbar ul li a {
+        color: rgb(0, 0, 0);
+        display: block;
+        padding: 3px 26px;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+
+    #navbar ul li a:hover {
+        color: rgb(0, 0, 0);
+        background-color: rgb(248, 248, 248);
+    }
+
+    #home {
+        display: flex;
+        flex-direction: column;
+        padding: 4px 150px;
+        height: 172px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #home::before {
+        content: "";
+        position: absolute;
+        background: url(rt.PNG) no-repeat center center/cover;
+        /* background: linear-gradient(red,orange); */
+        height: 45%;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.93;
+    }
+
+    #services {
+        margin: 30px;
+        display: flex;
+    }
+
+    #services .box {
+        border: 2px solid brown;
+        padding: 10px;
+        margin: -25px 3px;
+        border-radius: 25px;
+        background: linear-gradient(90deg, #e9a91e 50%, #dfca87 80%);
+    }
+
+    #services .box img {
+        height: 160px;
+        display: block;
+        margin: auto;
+    }
+
+    #services .box p {
+        font-family: 'Bree Serif', cursive
+    }
+
+    .h-primery {
+        font-size: 2.1rem;
+        padding: 12px;
+        font-family: 'Bree Serif', cursive
+    }
+
+    .h-secondery {
+        font-size: 2.1rem;
+        padding: 12px;
+        font-family: 'Bree Serif', cursive
+    }
+
+    #home h1 {
+        color: rgb(0, 0, 0);
+        align-items: center;
+        font-family: Baloo Bhai, cursive;
+    }
+
+    #home p {
+        color: rgb(0, 0, 0);
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        padding: 4px 18px;
+        border: 2px solid rgb(0, 0, 0);
+        background-color: rgb(241, 225, 179);
+        margin: 15px;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    /* clint-section */
+    #clint-section {
+        height: 340px;
+    }
+
+    #clint-section::before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(rgb(219, 69, 69), yellow);
+        height: 53%;
+
+        width: 100%;
+        z-index: -1;
+    }
+
+    #clients {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .clint-item {
+        padding: 35px;
+    }
+
+    #clients img {
+        height: 140px;
+    }
+
+    /* contact section */
+    #contact {
+        position: relative;
+    }
+
+    #contact::before {
+        content: "";
+        position: absolute;
+        height: 620%;
+        top: -15px;
+        width: 100%;
+        z-index: -1;
+        background: linear-gradient(rgb(255, 238, 4), rgb(233, 29, 29));
+    }
+
+    #contact-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    #contact-box input,
+    #contact-box textarea {
+        width: 100%;
+        padding: 0.4rem;
+        border-radius: 10px;
+    }
+
+    #contact-box label {
+        font-size: 1.5rem;
+        font-family: 'Bree Serif', cursive;
+    }
+
+    footer {
+        background: black;
+        color: goldenrod;
+        padding: 10px 20px;
+    }
+
+    /* peragraph section */
+    .nave-bar {
+        border: 2px solid black;
+        padding: 30px;
+    }
+
+    .nave-bar p {
+        height: 200px;
+    }
+
+    /* ballon section */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin: 30px;
+    }
+
+    /* .cont-item{
+    display: flex;
+  }
+   .cont-item img{
+    position: absolute;
+    height: 45%;
+    width: 10%;
+    left: 20px;
+    position: relative;
+    animation-name: balloon;
+    animation-duration: 2s;
+    animation-timing-function: 9;
+   }
+   @keyframes ballon {
+    from{
+        left: 10px;
+    }
+    to{
+        left: 200px;
+    }
+   } */
+
+    .boxes img {
+        position: relative;
+        height: 180px;
+        width: 100px;
+        top: 280px;
+        left: 30px;
+    }
+
+    .boxes img {
+        animation-name: balloons;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes balloons {
+        from {
+            top: 280px;
+            left: 30px
+        }
+
+        to {
+            top: -150px;
+            left: 1250px;
+        }
+    }
+
+    .nave-tion img {
+        position: relative;
+        height: 180px;
+        width: 90px;
+        top: 180px;
+        left: 1200px;
+    }
+
+    .nave-tion img {
+        animation-name: BALONS;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes BALONS {
+        from {
+            top: 180px;
+            left: 1200px;
+        }
+
+        to {
+            top: -330px;
+            left: -50px;
+        }
+    }
+
+    /* third bloon  */
+    .contain img {
+        position: relative;
+        height: 173px;
+        width: 100px;
+        top: -450px;
+        left: 10px;
+    }
+
+    .contain img {
+        animation-name: ali;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        animation-timing-function: all ease-out;
+    }
+
+    @keyframes ali {
+        from {
+            top: -450px;
+            left: 10px;
+        }
+
+        to {
+            top: 6px;
+            left: 1240px;
+        }
+    }
+
+  /* forth balloon */
+    .ali img{
+        position: relative;
+        height: 100px;
+        width: 100px;
+        top: 155px;
+        left: -500px;
+    }
+</style>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.PNG" alt="MYOnlineMeal.com">
+        </div>
+        <ul>
+            <li class="item"><a href="#">I'Ts</a></li>
+            <li class="item"><a href="#">MY</a></li>
+            <li class="item"><a href="#">BIRTH</a></li>
+            <li class="item"><a href="#">DAY </a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h1 class="h-primery">WELOCE TO MY BIRTHADAY PARTY</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam dolores odio fugiat sapiente! Dicta ducimus
+            veritatis </p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam dolores odio fugiat ,</p>
+        <button class="btn">JOIN the PARTY</button>
+    </section>
+
+
+    <section class="services-coontainer">
+        <h1 class="h-primery center">HAPPY BIRTHADAY</h1>
+        <div id="services">
+            <div class="box">
+                <img src="gf.PNG" alt="">
+                <h2 class="h-secondery center">TODAY</h2>
+                <p class="center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore commodi delectus
+                    architecto quo? Iusto voluptate placeat molestiae sint. At ex mollitia magnam, harum tempore minus
+                    esse, perferendis numquam nemo officiis aliquam consectetur eveniet unde, dolorum recusandae labore!
+                    Mollitia minima eaque, tempora consequuntur a voluptas sapiente cum commodi nihil maxime beatae?</p>
+            </div>
+            <div class="box">
+                <img src="b3.PNG" alt="">
+                <h2 class="h-secondery center">IS MY</h2>
+                <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere reprehenderit quis
+                    recusandae a cumque ratione! Praesentium nobis, voluptate facere eligendi perferendis sit? Ut
+                    dignissimos rerum quaerat asperiores doloribus perferendis, ullam eos sapiente impedit laborum quasi
+                    debitis architecto pariatur doloremque nostrum soluta atque repudiandae. Facilis nisi pariatur optio
+                    enim iure deserunt!.</p>
+            </div>
+            <div class="box">
+                <img src="b2.PNG" alt="">
+                <h2 class="h-secondery center">BIRTHADAY</h2>
+                <p class="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius rerum amet sed
+                    necessitatibus tempora reiciendis? Iure eos ullam, labore alias veritatis vero minima vel soluta,
+                    quaerat magni, quos minus! Aliquid error veritatis quasi perferendis hic, cum cupiditate, dolores
+                    fugiat, obcaecati adipisci impedit corporis iure eius voluptatum. Inventore pariatur atque modi?</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clint-section">
+        <h1 class="h-primery-center">ITEMS</h1>
+        <div id="clients">
+            <div class="clint-item">
+                <img src="hju-removebg-preview.png" alt="Our Clints">
+            </div>
+            <div class="clint-item">
+                <img src="logd-removebg-preview.png" alt="Our Clints">
+            </div>
+            <div class="clint-item">
+                <img src="kop-removebg-preview.png" alt="Our Clints">
+            </div>
+            <div class="clint-item">
+                <img src="jkl-removebg-preview.png" alt="Our Clints">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1 class="h-primery-contact">NOT CONTACT ME</h1>
+        <div id="contact-box">
+            <form action="">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="NAME">
+                </div>
+                <div class="form-group">
+                    <label for="name">DATE</label>
+                    <input type="text" name="name" id="DATE" placeholder="BIRTHDAY DATE">
+                </div>
+                <!-- <div class="form-group">
+                <label for="name">massege: </label>
+                <textarea name="messege" id="messege" cols="30" rows="30">message</textarea>
+                </div> -->
+            </form>
+        </div>
+    </section>
+    <div class="nave-bar">
+        <p>WEAK UP TO REALITY. NOTHING EVER GOES AS PLANED IN THIS ACCURSED WORLD.THE LONGER YOU LIVE THE MORE YOU WILL
+            REALIZE THAT THE ONLY THINGS THAT THE TRULY EXIST IN THIS REALITY ARE MERELY PAIN,SUFFERING AND FUTILITY.
+            <br><br> LISTEN..... <br><br>
+            EVERYWHERE YOU LOOK IN THIS WORLD WHEREVER THERE IS LIGHT THERE WILL ALWAYS BE SHADOWS TO BE FOUND AS WELL
+            AS LONG AS THERE IS A CONCEPT OF "VICTORS". THE VANQUISHED WILL ALSO EXIST THE SELFISH INTENT OF WANTING TO
+            PRESERVE "PEACE" INITIATES "WARS" and "HATRED" IS BORN IN ORDER TO PROTECT"LOVE". THERE ARE "NEXUSES" CASUAL
+            RELATIONSHIPS THAT CANNOT BE SEPARATED. I WANT TO "SEVER" THE FAT OF THIS WORLD. A WORLD OF ONLY "VICTORS".
+            A WORLD OF ONLY "LOVE". A WORLD OF ONLY "PEACE".
+            <br>
+            <br>
+            SORRY THIS IS NOT PART OF MY BIRTHDAY peragraph.
+            <br><br>
+        </p>
+    </div>
+
+    <div class="container">
+        <h1>PARTY </h1>
+    </div>
+    <div class="boxes">
+        <img src="b2red-removebg-preview.png" alt="">
+    </div>
+    <div class="nave-tion">
+        <img src="b3white_-_Copy-removebg-preview.png" alt="">
+    </div>
+    <div class="contain">
+        <img src="b2red-removebg-preview.png" alt="">
+    </div>
+        
+</body>
+
+</html>
