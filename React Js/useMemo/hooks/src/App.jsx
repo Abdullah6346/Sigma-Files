@@ -14,7 +14,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [numbers, setnumbers] = useState(nums);
 
-  // const magicalnum = numbers.find((ite) => ite.isMagical == true);
+  // const magicalnum = numbers.find((item) => item.isMagical == true);
   const magicalnum= useMemo(() => numbers.find((item) => item.isMagical == true), [numbers])
 
   return (
