@@ -1,14 +1,33 @@
 import { useState } from 'react'
+import { useReducer } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const initstate = 0;
+
+  function reducer(state, action) {
+    if (action.type === "INCREMENT") {
+      return state + 1;
+
+    }
+    if (action.type === "DECREMENT") {
+      return state - 1;
+
+    }
+    console.log(state, action)
+
+    return state;
+  }
+
+
+  const [state, dispatch] = useReducer(reducer, initstate)
   return (
     <>
 
-      <div>    
+      <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -18,8 +37,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <span> the vale is {state}</span>
+        <button onClick={() => dispatch({ type: "INCREMENT" })}>
+          Increment
+        </button>
+        <button onClick={() => dispatch({ type: "DECREMENT" })}>
+          Decrement
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
