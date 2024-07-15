@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -14,12 +14,12 @@ function App() {
   const [count, setCount] = useState(0);
   const [numbers, setnumbers] = useState(nums);
 
-  const magicalnum = numbers.find((item) => item.isMagical == true);
+  // const magicalnum = numbers.find((ite) => ite.isMagical == true);
+  const magicalnum= useMemo(() => numbers.find((item) => item.isMagical == true), [numbers])
 
   return (
     <>
       <div>
-        <span>Magical number is {magicalnum.index}</span>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -27,9 +27,22 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <span>Magical number is {magicalnum.index}</span>
+
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => {
+          if (count == 10) {
+            setnumbers( new Array(10_000_000).fill(0).map((_, i) => {
+              return {
+                index: i,
+                isMagical: i === 9_000_000,
+              };
+            }))
+          }
+        setCount((count) => count + 1
+
+        )}}>
           count is {count}
         </button>
         <p>
