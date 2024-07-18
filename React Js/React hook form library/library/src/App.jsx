@@ -32,8 +32,13 @@ function App() {
 
   return (
     <>
+<<<<<<< Updated upstream
     {isSubmitting && <div>Form is Submitting.....  </div>}
       <div className="container">
+=======
+  
+    <div className="container">
+>>>>>>> Stashed changes
       <form onSubmit={handleSubmit(onSubmit)}>
       <div className="container">
 
